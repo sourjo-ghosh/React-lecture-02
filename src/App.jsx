@@ -1,25 +1,48 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import Counter from "./counter";
 import Batsman from "./batsman";
-import ShoppingCart from "./shopping-cart";
+import Header from "./header";
+import Users from "./users";
+import Posts from "./posts";
+import Loading from "./suspanse";
+import HelloWorld from "./hello-world";
 
+
+
+
+// const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users").then(
+//   (res) => res.json(),
+// );
 function App() {
-  function handleClicked() {
-    alert("I am clicked.");
-  }
+  // function handleClicked() {
+  //   alert("I am clicked.");
+  // }
 
-  const handleClicked3 = () => alert("Clicked From function No. 3 ");
-  const handleAdd5 = (num) => {
-    const newNum = num + 10;
-    alert(newNum);
+  // const handleClicked3 = () => alert("Clicked From function No. 3 ");
+  // const handleAdd5 = (num) => {
+  //   const newNum = num + 10;
+  //   alert(newNum);
+  // };
+  const postFetch = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    return res.json();
   };
-
+  const postsPromises = postFetch();
   return (
     <>
-      <h1>Hello world</h1>
+      <Header></Header>
+    <HelloWorld></HelloWorld>
+      {/* <Suspense fallback={<Loading></Loading>}>
+        <Posts postsPromises={postsPromises}></Posts>
+      </Suspense> */}
+      {/* <Hello></Hello> */}
+      {/* <Suspense fallback={<h2>Data is Cooking...</h2>}>
+        <Users fetchUsers={fetchUsers}></Users>
+      </Suspense> */}
+      {/* <h1>Hello world</h1>
       <p>I am Leaning React JS</p>
-      {/* <div>
+      <div>
         <button className="Btn" onClick={handleClicked}>
           Click Me
         </button>
@@ -50,7 +73,6 @@ function App() {
       <Counter></Counter>
       <Counter2></Counter2>
       <Batsman></Batsman> */}
-      <ShoppingCart></ShoppingCart>
     </>
   );
 }
@@ -83,5 +105,15 @@ function Counter2() {
       <button onClick={() => setCount(count - 1)}>Decrease</button>
       <button onClick={() => setCount(0)}>Reset</button>
     </div>
+  );
+}
+
+function Hello() {
+  return (
+    <>
+      <button className="Btn" onClick={() => alert("Hello world!")}>
+        Click Me
+      </button>
+    </>
   );
 }

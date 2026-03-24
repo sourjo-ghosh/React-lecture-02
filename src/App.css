@@ -1,0 +1,25 @@
+header {
+  padding: 20px;
+  font-size: 30px;
+  background-color: antiquewhite;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .name {
+  font-size: 35px;
+  font-weight: bold;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.Btn {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 20px;
+  background: gray;
+  color: whitesmoke;
+  border: none;
+}

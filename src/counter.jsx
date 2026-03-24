@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Counter() {
   const counterStyle = {
     border: "2px solid red",
-    padding: "8px",
+    // padding: "8px",
   };
   const [count, setCount] = useState(0);
   const handleAdd = () => {
